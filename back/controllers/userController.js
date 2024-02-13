@@ -1,6 +1,7 @@
 const userService = require('../services/userService');
 const { User } = require('../models')
 
+
 async function createUser(req, res) {
     try {
         const newUser = req.body;
@@ -59,4 +60,8 @@ async function loginUser(req, res) {
     
     }
 }
-module.exports = { createUser, getAllUsers, getUserById, loginUser }
+function middle() {
+    console.log("entro al middleware")
+}
+
+module.exports = { createUser, getAllUsers, getUserById, loginUser, middle}

@@ -2,7 +2,7 @@ const { User } = require('../models');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 // array de roles permitidos 
-const roles = ['administrador', 'usuario'];
+
 
 
 async function createNewUser(data) {
@@ -37,36 +37,25 @@ async function getById(id) {
 function generateJWT(datosUsuario) {
   try {
     // Genera un token JWT para el usuario recién registrado
-    const tokenLogin = jwt.sign({ id: datosUsuario.id, userName: datosUsuario.userName }, process.env.SECRET_KEY || 'secretkey', { expiresIn: '1h' });
+    const tokenLogin = jwt.sign({ id: datosUsuario.id, userName: datosUsuario.userName, rol: datosUsuario.rol }, process.env.SECRET_KEY || 'secretkey', { expiresIn: '1h' });
     return tokenLogin;
   } catch (error) {
     console.error('Error al generar JWT:', error);
     throw error;
   }
 }
-function verificarToken(token) {
-  try {
-    // Verificar y decodificar el token utilizando la clave secreta
-    const decoded = jwt.verify(token, process.env.SECRET_KEY || 'secretkey');
-    return decoded;
-  } catch (error) {
-    // Si hay un error al verificar o decodificar el token, se devuelve null
-    console.error('Error al verificar el token:', error);
-    return null;
-  }
-}
+
+
 async function login(userName, pass) {
   try {
     // Busca el usuario por nombre de usuario
     const usuario = await User.findOne({ where: { userName } });
-    console.log("log de service", usuario)
     if (!usuario) {
       return null; 
     }
 
     // Compara la contraseña proporcionada con la contraseña almacenada cifrada
     const contrasenaValida = await bcrypt.compare(pass, usuario.password);
-    console.log(pass, usuario.password, contrasenaValida)
     if (!contrasenaValida) {
       return null;   
     }
@@ -74,7 +63,7 @@ async function login(userName, pass) {
     // Genera un token JWT para el usuario
     const tokenLogin = generateJWT(usuario);
     
-    return { tokenLogin };
+    return tokenLogin;
   } catch (error) {
     throw error;
   }

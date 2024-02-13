@@ -1,0 +1,25 @@
+{"level":"debug","message":"Database: loginproyect - Executing (default): SELECT 1+1 AS result","metadata":{},"timestamp":"2024-02-13T13:21:32-03:00"}
+{"level":"debug","message":"Database: loginproyect - Executing (default): SELECT 1+1 AS result","metadata":{},"timestamp":"2024-02-13T13:22:30-03:00"}
+{"level":"debug","message":"Database: loginproyect - Executing (default): SELECT 1+1 AS result","metadata":{},"timestamp":"2024-02-13T13:23:05-03:00"}
+{"level":"debug","message":"Database: loginproyect - Executing (default): SELECT `id`, `userName`, `email`, `password`, `rol`, `createdAt`, `updatedAt` FROM `Users` AS `User`;","metadata":{},"timestamp":"2024-02-13T13:23:44-03:00"}
+{"level":"debug","message":"Database: loginproyect - Executing (default): SELECT `id`, `userName`, `email`, `password`, `rol`, `createdAt`, `updatedAt` FROM `Users` AS `User` WHERE `User`.`userName` = 'maria' LIMIT 1;","metadata":{},"timestamp":"2024-02-13T13:24:00-03:00"}
+{"level":"debug","message":"Database: loginproyect - Executing (default): INSERT INTO `Users` (`id`,`userName`,`email`,`password`,`rol`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?,?,?,?,?);","metadata":{},"timestamp":"2024-02-13T13:24:00-03:00"}
+{"level":"debug","message":"Database: loginproyect - Executing (default): SELECT 1+1 AS result","metadata":{},"timestamp":"2024-02-13T19:30:04-03:00"}
+{"level":"debug","message":"Database: loginproyect - Executing (default): SELECT 1+1 AS result","metadata":{},"timestamp":"2024-02-13T19:42:28-03:00"}
+{"level":"debug","message":"Database: loginproyect - Executing (default): SELECT `id`, `userName`, `email`, `password`, `rol`, `createdAt`, `updatedAt` FROM `Users` AS `User` WHERE `User`.`userName` = 'lia987' LIMIT 1;","metadata":{},"timestamp":"2024-02-13T19:44:08-03:00"}
+{"level":"debug","message":"Database: loginproyect - Executing (default): SELECT 1+1 AS result","metadata":{},"timestamp":"2024-02-13T19:45:14-03:00"}
+{"level":"debug","message":"Database: loginproyect - Executing (default): SELECT 1+1 AS result","metadata":{},"timestamp":"2024-02-13T19:46:38-03:00"}
+{"level":"debug","message":"Database: loginproyect - Executing (default): SELECT 1+1 AS result","metadata":{},"timestamp":"2024-02-13T19:47:52-03:00"}
+{"level":"debug","message":"Database: loginproyect - Executing (default): SELECT `id`, `userName`, `email`, `password`, `rol`, `createdAt`, `updatedAt` FROM `Users` AS `User`;","metadata":{},"timestamp":"2024-02-13T19:47:56-03:00"}
+{"level":"debug","message":"Database: loginproyect - Executing (default): SELECT `id`, `userName`, `email`, `password`, `rol`, `createdAt`, `updatedAt` FROM `Users` AS `User` WHERE `User`.`userName` = 'maria' LIMIT 1;","metadata":{},"timestamp":"2024-02-13T19:48:12-03:00"}
+{"level":"debug","message":"Database: loginproyect - Executing (default): SELECT 1+1 AS result","metadata":{},"timestamp":"2024-02-13T19:49:37-03:00"}
+{"level":"debug","message":"Database: loginproyect - Executing (default): SELECT 1+1 AS result","metadata":{},"timestamp":"2024-02-13T19:51:35-03:00"}
+{"level":"debug","message":"Database: loginproyect - Executing (default): SELECT `id`, `userName`, `email`, `password`, `rol`, `createdAt`, `updatedAt` FROM `Users` AS `User` WHERE `User`.`userName` = 'maria' LIMIT 1;","metadata":{},"timestamp":"2024-02-13T19:51:56-03:00"}
+{"level":"debug","message":"Database: loginproyect - Executing (default): SELECT 1+1 AS result","metadata":{},"timestamp":"2024-02-13T19:52:49-03:00"}
+{"level":"debug","message":"Database: loginproyect - Executing (default): SELECT 1+1 AS result","metadata":{},"timestamp":"2024-02-13T19:55:48-03:00"}
+{"level":"debug","message":"Database: loginproyect - Executing (default): SELECT 1+1 AS result","metadata":{},"timestamp":"2024-02-13T19:58:08-03:00"}
+{"level":"debug","message":"Database: loginproyect - Executing (default): SELECT 1+1 AS result","metadata":{},"timestamp":"2024-02-13T20:05:30-03:00"}
+{"level":"debug","message":"Database: loginproyect - Executing (default): SELECT `id`, `userName`, `email`, `password`, `rol`, `createdAt`, `updatedAt` FROM `Users` AS `User` WHERE `User`.`userName` = 'mirnada' LIMIT 1;","metadata":{},"timestamp":"2024-02-13T20:05:39-03:00"}
+{"level":"debug","message":"Database: loginproyect - Executing (default): INSERT INTO `Users` (`id`,`userName`,`email`,`password`,`rol`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?,?,?,?,?);","metadata":{},"timestamp":"2024-02-13T20:05:39-03:00"}
+{"level":"debug","message":"Database: loginproyect - Executing (default): SELECT `id`, `userName`, `email`, `password`, `rol`, `createdAt`, `updatedAt` FROM `Users` AS `User` WHERE `User`.`userName` = 'mirnada' LIMIT 1;","metadata":{},"timestamp":"2024-02-13T20:05:59-03:00"}
+{"level":"debug","message":"Database: loginproyect - Executing (default): SELECT 1+1 AS result","metadata":{},"timestamp":"2024-02-13T20:06:39-03:00"}
