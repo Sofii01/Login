@@ -1,4 +1,4 @@
-
+require('dotenv').config();
 const express = require('express');
 
 //models
@@ -19,6 +19,11 @@ models.sequelize.authenticate()
         console.log(err + 'Conexion fallida');
     });
 
+// const { sequelize, User } = require('./models'); // Ajusta la ruta según tu estructura de archivos
+
+// // Sincroniza el modelo con la base de datos
+// await sequelize.sync();
+app.use(express.json());
 app.use('/', routes);
 
-module.exports = app;
+app.listen(process.env.PORT,()=> console.log("server listen:\nhttp://localhost:" + process.env.PORT))
