@@ -5,28 +5,37 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
+
+
+import { RouterModule } from '@angular/router';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatInputModule} from '@angular/material/input'
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { ReactiveFormsModule } from '@angular/forms';
-import { RouterLink } from '@angular/router';
-import { MatButtonModule } from '@angular/material/button';
+import { MatButtonModule } from '@angular/material/button'
+import { LayoutComponent } from './shared/layout/layout.component';
+
+
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     SignupComponent,
+    LayoutComponent
     
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
     BrowserAnimationsModule,
-    MatFormFieldModule, 
     ReactiveFormsModule,
-    RouterLink,
-    MatButtonModule
-   
+    MatInputModule,
+    MatFormFieldModule,
+    MatButtonModule,
+    RouterModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

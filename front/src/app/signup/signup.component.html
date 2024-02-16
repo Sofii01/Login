@@ -1,1 +1,32 @@
-<p>signup works!</p>
+<div class="container">
+    <div class="signup_title_container">
+        <h3 class="signup_title">Sign Up</h3>
+    </div>
+
+    <div [formGroup]="form" class="formSignup">
+        <p>Please fill out the following fields</p>
+        <mat-form-field appearance="fill">
+            <mat-label>User Name</mat-label>
+            <input matInput formControlName="userName">
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Mail</mat-label>
+            <input matInput formControlName="email">
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Confirm password</mat-label>
+            <input matInput formControlName="password">
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Password</mat-label>
+            <input matInput formControlName="password">
+        </mat-form-field>
+
+        <button mat-raised-button color="primary" (click)="sendValues()" [disabled]="form.invalid">Enviar</button>
+        <div class="signup_footer">
+            <p>Own an Account? <a routerLink="/signup">JUMP RIGHT IN</a></p>
+
+        </div>
+    </div>
+</div>

@@ -1,12 +1,34 @@
+<div class="container">
+  <div class="login_title_container">
+    <h3 class="login_title">Log In</h3>
+    
+  </div>
+  
+  
+  <div [formGroup]="form" class="formLogin">
+    <p>Please fill out the following fields</p>
+    <mat-form-field appearance="fill">
+      <mat-label>User Name</mat-label>
+      <input matInput formControlName="userName">
+      <!-- <div *ngIf="form?.get('userName')?.invalid && form?.get('userName')?.touched">
+          <mat-error *ngIf="form.controls('userName').errors['required']">User Name is required</mat-error>
+        </div> -->
+  
+  
+  
+    </mat-form-field>
+  
+    <mat-form-field appearance="fill">
+      <mat-label>Password</mat-label>
+      <input matInput formControlName="password">
+    </mat-form-field>
+  
+    <button mat-raised-button color="primary" (click)="sendValues()" [disabled]="form.invalid">Enviar</button>
+    <div class="login_footer">
+      <p>No Account yet? <a routerLink="/signup">Sign Up!</a></p>
+  
+    </div>
+  </div>
 
-<form [formGroup]="form">
-    <mat-form-field>
-        <mat-label>Nombre de Usuario</mat-label>
-        <input matInput placeholder="Usuario" formControlName="usuario">
-    </mat-form-field>
-    <mat-form-field>
-        <mat-label>Contraseña</mat-label>
-        <input matInput placeholder="Contraseña" formControlName="pass">
-    </mat-form-field>
-    <button type="submit" [disabled]="form.invalid"></button>
-</form>
+  
+</div>

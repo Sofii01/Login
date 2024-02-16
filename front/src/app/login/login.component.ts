@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { UntypedFormControl } from '@angular/forms';
-import {UntypedFormBuilder, UntypedFormGroup} from
+import { FormBuilder, FormGroup ,FormControl, Validators } from '@angular/forms';
 '@angular/forms';
 @Component({
   selector: 'app-login',
@@ -8,22 +7,22 @@ import {UntypedFormBuilder, UntypedFormGroup} from
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
-  form: UntypedFormGroup;
-  usuarioCtrl = new UntypedFormControl('');
-  passwordCtrl = new UntypedFormControl('');
 
-  // const usuario = this.form.get('usuario');
-  // if(usuario) {
-  //   usuario.valueChanges.subscribe();
-  //   usuario.getRawValue();
-  // }
+  userName: FormControl = new FormControl('');
+  password: FormControl = new FormControl('');
+
+  form: FormGroup;
+
   constructor(
-    private uFormBuilder: UntypedFormBuilder,
-   
-  ) {
-    this.form = this.uFormBuilder.group({
-      usuario: this.usuarioCtrl,
-      pass: this.passwordCtrl,
-    });
+    private fb: FormBuilder
+  ){
+    this.form = this.fb.group({
+      userName: ['', [Validators.required, Validators.minLength(6)]],
+      password: ['',[Validators.required, Validators.minLength(8)]]
+    })
   }
+  sendValues(){
+    console.log(this.form.value)
+  }
+
 }
