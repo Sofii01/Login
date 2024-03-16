@@ -23,11 +23,14 @@
       <input matInput formControlName="password">
     </mat-form-field>
   
-    <button mat-raised-button color="primary" (click)="sendValues()" [disabled]="form.invalid">Enviar</button>
+    <button mat-raised-button color="primary" (click)="onSubmit()" [disabled]="form.invalid">Log In</button>
     <div class="login_footer">
       <p>No Account yet? <a routerLink="/signup">Sign Up!</a></p>
   
     </div>
+  </div>
+  <div *ngIf="showSuccessMessage" class="success-message">
+    Success Login! 
   </div>
 
   

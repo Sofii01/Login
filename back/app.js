@@ -1,6 +1,6 @@
 require('dotenv').config();
 const express = require('express');
-
+const cors = require('cors');
 //models
 const models = require('./models');
 
@@ -11,6 +11,7 @@ const routes = require('./routes');
 //
 const app = express();
 
+app.use(cors({ origin: 'http://localhost:4200' }));
 models.sequelize.authenticate()
     .then(()=> {
         console.log('Conexion con la base de datos exitosa');

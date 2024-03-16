@@ -14,6 +14,7 @@ import { MatInputModule} from '@angular/material/input'
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button'
 import { LayoutComponent } from './shared/layout/layout.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -35,6 +36,8 @@ import { LayoutComponent } from './shared/layout/layout.component';
     MatFormFieldModule,
     MatButtonModule,
     RouterModule,
+    HttpClientModule,
+
     
   ],
   providers: [],

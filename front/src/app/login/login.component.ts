@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup ,FormControl, Validators } from '@angular/forms';
-'@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+
+import { LoginServiceService } from '../services/login-service.service';
+import { Subscription, timer } from 'rxjs';
+import { take } from 'rxjs/operators';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -8,21 +11,48 @@ import { FormBuilder, FormGroup ,FormControl, Validators } from '@angular/forms'
 })
 export class LoginComponent {
 
-  userName: FormControl = new FormControl('');
-  password: FormControl = new FormControl('');
-
   form: FormGroup;
-
+  showSuccessMessage = false;
+  private successMessageTimeout: Subscription | undefined;
+  
   constructor(
-    private fb: FormBuilder
-  ){
+    private fb: FormBuilder,
+    private loginService: LoginServiceService
+  ) {
     this.form = this.fb.group({
       userName: ['', [Validators.required, Validators.minLength(6)]],
-      password: ['',[Validators.required, Validators.minLength(8)]]
+      password: ['', [Validators.required, Validators.minLength(8)]]
     })
   }
-  sendValues(){
-    console.log(this.form.value)
-  }
 
+  onSubmit() {
+    if (this.form.invalid) {
+      return;
+    }
+
+    const userName = this.form.get('userName')?.value;
+    const password = this.form.get('password')?.value;
+
+    this.loginService.login(userName, password).subscribe(
+      response => {
+        console.log(response);
+      },
+      error => {
+        console.log(error);
+      }
+    )
+    this.showSuccessMessage = true;
+
+    // Ocultar el mensaje de éxito después de 3 segundos
+    this.successMessageTimeout = timer(3000).pipe(take(3)).subscribe(() => {
+      this.showSuccessMessage = false;
+    });
+
+  }
+  ngOnDestroy() {
+    // Limpiar la suscripción para evitar fugas de memoria
+    if (this.successMessageTimeout) {
+      this.successMessageTimeout.unsubscribe();
+    }
+  }
 }

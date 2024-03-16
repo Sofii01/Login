@@ -60,8 +60,9 @@ async function loginUser(req, res) {
     
     }
 }
-function middle() {
+function middle(req, res) {
     console.log("entro al middleware")
+    return res.status(200).json({mensaje: 'Usuario autorizado'})
 }
 
 module.exports = { createUser, getAllUsers, getUserById, loginUser, middle}
