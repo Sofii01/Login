@@ -8,30 +8,24 @@
         <mat-form-field appearance="fill">
             <mat-label>User Name</mat-label>
             <input matInput formControlName="userName">
-
         </mat-form-field>
-        <div *ngIf="userName.invalid && (userName.dirty || userName.touched)" class="text-alert">
-            <div *ngIf="userName.errors?.['required']">Name is required.</div>
-            <div *ngIf="userName.errors?.['minlength']">
-                Name must be at least 6 characters long.
-            </div>
-        </div>
         <mat-form-field appearance="fill">
             <mat-label>Mail</mat-label>
             <input matInput formControlName="email">
         </mat-form-field>
 
         <mat-form-field appearance="fill">
-            <mat-label>Password</mat-label>
-            <input matInput formControlName="password" type="password">
+            <mat-label>Confirm password</mat-label>
+            <input matInput formControlName="password">
         </mat-form-field>
         <mat-form-field appearance="fill">
-            <mat-label>Confirm password</mat-label>
-            <input matInput formControlName="password" type="password">
+            <mat-label>Password</mat-label>
+            <input matInput formControlName="password">
         </mat-form-field>
-        <button mat-raised-button color="primary" (click)="sendValues()" [disabled]="form.invalid">Create count</button>
+
+        <button mat-raised-button color="primary" (click)="sendValues()" [disabled]="form.invalid">Enviar</button>
         <div class="signup_footer">
-            <p>Own an Account? <a routerLink="/login">JUMP RIGHT IN</a></p>
+            <p>Own an Account? <a routerLink="/signup">JUMP RIGHT IN</a></p>
 
         </div>
     </div>

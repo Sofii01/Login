@@ -27,7 +27,7 @@
 
 }
 p {
-    font-family: sans-serif;
+    font-family: 'Light';
     font-size: 1em;
 }
 
@@ -35,9 +35,4 @@ p {
     display: flex;
     justify-content: center;
     padding: 4%
-}
-a{
-    /* text-decoration: none; */
-    font-family: sans-serif;
-    color: black;
 }

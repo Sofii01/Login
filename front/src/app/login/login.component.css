@@ -24,7 +24,7 @@
 
 } 
 p {
-    font-family: sans-serif;
+    font-family: 'Light';
     font-size: 1em;
 }
 .login_footer{
@@ -32,21 +32,3 @@ p {
     justify-content: center;
     padding: 4%
 }
-a{
-    /* text-decoration: none; */
-    font-family: sans-serif;
-    color: black;
-}
-.success-message {
-    position: fixed;
-    top: 78%;
-    left: 72%;
-    transform: translate(-50%, -50%);
-    background-color: #E8751A;
-    color: white;
-    padding: 30px; /* Aumentar el tamaño del padding para hacer el mensaje más grande */
-    font-size: 24px; /* Aumentar el tamaño de la fuente */
-    border-radius: 10px; /* Hacer los bordes más redondeados */
-    z-index: 9999; /* Para asegurarse de que esté por encima de otros elementos */
-  }
-  

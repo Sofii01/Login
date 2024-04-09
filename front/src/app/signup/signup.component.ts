@@ -9,6 +9,8 @@ import { FormBuilder, FormGroup ,FormControl, Validators } from '@angular/forms'
   styleUrls: ['./signup.component.css']
 })
 export class SignupComponent {
+  userName: FormControl = new FormControl('');
+  password: FormControl = new FormControl('');
 
   form: FormGroup;
   constructor(
@@ -16,14 +18,8 @@ export class SignupComponent {
   ){
     this.form = this.fb.group({
       userName: ['', [Validators.required, Validators.minLength(6)]],
-      email: ['', [Validators.required, Validators.email]],      
       password: ['',[Validators.required, Validators.minLength(8)]]
-
     })
-  }
-
-  get userName(){
-    return this.form.controls['userName'];
   }
   sendValues(){
     console.log(this.form.value)
