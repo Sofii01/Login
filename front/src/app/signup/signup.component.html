@@ -16,17 +16,28 @@
 
         <mat-form-field appearance="fill">
             <mat-label>Confirm password</mat-label>
-            <input matInput formControlName="password">
+            <input matInput type="password" formControlName="confirmPassword">
+            <mat-error *ngIf="form.hasError('passwordMismatch')">Passwords do not match</mat-error>
         </mat-form-field>
         <mat-form-field appearance="fill">
             <mat-label>Password</mat-label>
-            <input matInput formControlName="password">
+            <input matInput type="password" formControlName="password">
         </mat-form-field>
 
-        <button mat-raised-button color="primary" (click)="sendValues()" [disabled]="form.invalid">Enviar</button>
+        <button mat-raised-button color="primary" (click)="onSubmit()" [disabled]="form.invalid">Enviar</button>
         <div class="signup_footer">
-            <p>Own an Account? <a routerLink="/signup">JUMP RIGHT IN</a></p>
+            <p>Own an Account? <a routerLink="/login">JUMP RIGHT IN</a></p>
 
         </div>
+    </div>
+
+    <div *ngIf="showSuccessMessage" class="success-message">
+        <p>Success Sign Up!</p>
+        <a routerLink="/login">Go to Login</a>
+        <p>Thank you</p>
+    </div>
+    <div *ngIf="showErrorMessage" class="error-message">
+        <p>Ups! Error Sign Up..</p>
+        <a routerLink="/signup">Try again..</a>
     </div>
 </div>

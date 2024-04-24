@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
-import { LoginServiceService } from '../services/login-service.service';
+import {LoginServiceService } from '../services/login-service.service';
 import { Subscription, timer } from 'rxjs';
 import { take } from 'rxjs/operators';
 @Component({
@@ -43,16 +43,7 @@ export class LoginComponent {
     )
     this.showSuccessMessage = true;
 
-    // Ocultar el mensaje de éxito después de 3 segundos
-    this.successMessageTimeout = timer(3000).pipe(take(3)).subscribe(() => {
-      this.showSuccessMessage = false;
-    });
 
   }
-  ngOnDestroy() {
-    // Limpiar la suscripción para evitar fugas de memoria
-    if (this.successMessageTimeout) {
-      this.successMessageTimeout.unsubscribe();
-    }
-  }
+
 }
