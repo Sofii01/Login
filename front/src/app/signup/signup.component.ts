@@ -13,6 +13,9 @@ export class SignupComponent {
   form: FormGroup;
   showSuccessMessage = false;
   showErrorMessage = false;
+  errorMessage = '';
+  showPassword = false;
+
   constructor(
     private fb: FormBuilder,
     private signupService: SignUpService
@@ -23,6 +26,9 @@ export class SignupComponent {
       confirmPassword:['', [Validators.required, Validators.minLength(8)]],
       password: ['',[Validators.required, Validators.minLength(8)]]
     }, { validators: this.passwordMatchValidator })
+  }
+  togglePasswordVisibility() {
+    this.showPassword = !this.showPassword;
   }
   //verifica que las contraseñas sean iguales
   passwordMatchValidator(form: FormGroup) {
@@ -52,6 +58,7 @@ export class SignupComponent {
       },
       error =>{
         console.log(error);
+        this.errorMessage = error.msg;
         this.showErrorMessage = true;
       }
     );

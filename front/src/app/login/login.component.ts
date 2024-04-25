@@ -13,7 +13,9 @@ export class LoginComponent {
 
   form: FormGroup;
   showSuccessMessage = false;
-  private successMessageTimeout: Subscription | undefined;
+  showErrorMessage = false;
+  errorMessage = '';
+  showPassword = false;
   
   constructor(
     private fb: FormBuilder,
@@ -23,6 +25,12 @@ export class LoginComponent {
       userName: ['', [Validators.required, Validators.minLength(6)]],
       password: ['', [Validators.required, Validators.minLength(8)]]
     })
+  }
+
+  
+
+  togglePasswordVisibility() {
+    this.showPassword = !this.showPassword;
   }
 
   onSubmit() {
@@ -36,12 +44,16 @@ export class LoginComponent {
     this.loginService.login(userName, password).subscribe(
       response => {
         console.log(response);
+        this.showSuccessMessage = true;
+    
       },
       error => {
-        console.log(error);
+        this.errorMessage = error
+        console.log(this.errorMessage)
+        this.showErrorMessage = true
       }
     )
-    this.showSuccessMessage = true;
+    
 
 
   }

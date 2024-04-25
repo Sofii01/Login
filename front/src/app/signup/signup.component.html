@@ -14,16 +14,23 @@
             <input matInput formControlName="email">
         </mat-form-field>
 
-        <mat-form-field appearance="fill">
-            <mat-label>Confirm password</mat-label>
-            <input matInput type="password" formControlName="confirmPassword">
-            <mat-error *ngIf="form.hasError('passwordMismatch')">Passwords do not match</mat-error>
-        </mat-form-field>
-        <mat-form-field appearance="fill">
-            <mat-label>Password</mat-label>
-            <input matInput type="password" formControlName="password">
-        </mat-form-field>
 
+        <mat-form-field appearance="fill" class="password-field">
+            <mat-label>Password</mat-label>
+            <input matInput type="password" [type]="showPassword ? 'text' : 'password'"  formControlName="password">
+            <button type="button" (click)="togglePasswordVisibility()" class="toggle-button">
+                {{ showPassword ? 'Hide' : 'Show' }}
+              </button>
+        </mat-form-field>
+        <mat-form-field appearance="fill" class="password-field">
+            <mat-label>Confirm password</mat-label>
+            <input matInput type="password" [type]="showPassword ? 'text' : 'password'" formControlName="confirmPassword">
+            <button type="button" (click)="togglePasswordVisibility()" class="toggle-button">
+                {{ showPassword ? 'Hide' : 'Show' }}
+              </button>
+            <mat-error *ngIf="form.hasError('passwordMismatch')">Passwords do not match</mat-error>
+
+        </mat-form-field>
         <button mat-raised-button color="primary" (click)="onSubmit()" [disabled]="form.invalid">Enviar</button>
         <div class="signup_footer">
             <p>Own an Account? <a routerLink="/login">JUMP RIGHT IN</a></p>
@@ -37,7 +44,7 @@
         <p>Thank you</p>
     </div>
     <div *ngIf="showErrorMessage" class="error-message">
-        <p>Ups! Error Sign Up..</p>
+        <p>Ups!  {{ errorMessage }}</p>
         <a routerLink="/signup">Try again..</a>
     </div>
 </div>
