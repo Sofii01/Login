@@ -10,14 +10,13 @@ async function createUser(req, res) {
         let user = await User.findOne({ where: { userName } });
 
         if (user !== null) {
-            return res.status(409).json({ msg: `El usuario ${userName} YA EXISTE` });
+            return res.status(409).json({ msg: `User ${userName} already exists` });
         }
 
         const userCreated = await userService.createNewUser(newUser);
         return res.status(201).json(userCreated);
     } catch (error) {
-        return res.status(400).json({ mensaje: 'Error al crear usuario' });
-    
+        return res.status(400).json({ msg: 'Error when creating user' });
 
     }
 }
@@ -33,7 +32,7 @@ async function getUserById(req, res, next) {
         if (user != null) {
             return res.status(200).send(user);
         } else {
-            res.status(404).json({ mensaje: 'Error al buscar usuario' })
+            res.status(404).json({ msg: 'Error al buscar usuario' })
         }
 
     } catch (error) {
@@ -50,19 +49,19 @@ async function loginUser(req, res) {
 
         const token = await userService.login(userName, password);
         if (!token) {
-            return res.status(401).json({ mensaje: 'Usuario no encontrado' });
+            return res.status(401).json({ msg: 'User Not Found' });
         }
         return res.status(200).json({ token });
         
     } catch (error) {
-        console.error('Error al iniciar sesión: ', error);
-        return res.status(401).json({ mensaje: 'Nombre de usuario o contraseña incorrectos' });
+        console.error('Failed to log in:', error);
+        return res.status(401).json({ msg: 'Incorrect username or password' });
     
     }
 }
 function middle(req, res) {
     console.log("entro al middleware")
-    return res.status(200).json({mensaje: 'Usuario autorizado'})
+    return res.status(200).json({msg: 'Usuario autorizado'})
 }
 
 module.exports = { createUser, getAllUsers, getUserById, loginUser, middle}
