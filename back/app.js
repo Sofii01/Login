@@ -11,7 +11,8 @@ const routes = require('./routes');
 //
 const app = express();
 
-app.use(cors({ origin: 'http://localhost:4200' }));
+// app.use(cors({ origin: 'http://localhost:4200' }));
+app.use(cors())
 models.sequelize.authenticate()
     .then(()=> {
         console.log('Conexion con la base de datos exitosa');
